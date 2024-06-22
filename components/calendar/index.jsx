@@ -16,12 +16,12 @@ function EmojiCalendar() {
   };
 
   return (
-    <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md bg-white border border-[#9d9e9f]/60">
+    <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">
       {/*left sidebar*/}
-      <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[250px] bg-white border-t-0 border-r border-b-0 border-l-0 border-[#dadce0]">
+      <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[250px] border-t-0 border-r border-b-0 border-l-0 border-[#dadce0]">
         <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2.5 px-4 py-2.5">
           <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-            <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left text-[#333]">
+            <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left ">
               January
             </p>
           </div>
@@ -32,7 +32,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       m
                     </p>
                   </div>
@@ -41,7 +41,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       t
                     </p>
                   </div>
@@ -50,7 +50,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       w
                     </p>
                   </div>
@@ -59,7 +59,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       t
                     </p>
                   </div>
@@ -68,7 +68,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       f
                     </p>
                   </div>
@@ -77,7 +77,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       s
                     </p>
                   </div>
@@ -86,7 +86,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[26px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       s
                     </p>
                   </div>
@@ -97,7 +97,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       01
                     </p>
                   </div>
@@ -115,7 +115,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       03
                     </p>
                   </div>
@@ -124,7 +124,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       04
                     </p>
                   </div>
@@ -133,7 +133,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       05
                     </p>
                   </div>
@@ -142,7 +142,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       06
                     </p>
                   </div>
@@ -151,7 +151,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       07
                     </p>
                   </div>
@@ -162,7 +162,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       08
                     </p>
                   </div>
@@ -171,7 +171,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       09
                     </p>
                   </div>
@@ -180,7 +180,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       10
                     </p>
                   </div>
@@ -189,7 +189,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       11
                     </p>
                   </div>
@@ -198,7 +198,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       12
                     </p>
                   </div>
@@ -207,7 +207,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       13
                     </p>
                   </div>
@@ -216,7 +216,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       14
                     </p>
                   </div>
@@ -227,7 +227,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       15
                     </p>
                   </div>
@@ -236,7 +236,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       16
                     </p>
                   </div>
@@ -245,7 +245,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       17
                     </p>
                   </div>
@@ -254,7 +254,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       18
                     </p>
                   </div>
@@ -263,7 +263,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       19
                     </p>
                   </div>
@@ -272,7 +272,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       20
                     </p>
                   </div>
@@ -281,7 +281,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       21
                     </p>
                   </div>
@@ -292,7 +292,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       22
                     </p>
                   </div>
@@ -301,7 +301,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       23
                     </p>
                   </div>
@@ -310,7 +310,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       24
                     </p>
                   </div>
@@ -319,7 +319,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       25
                     </p>
                   </div>
@@ -328,7 +328,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       26
                     </p>
                   </div>
@@ -337,7 +337,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       27
                     </p>
                   </div>
@@ -346,7 +346,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       28
                     </p>
                   </div>
@@ -357,7 +357,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       29
                     </p>
                   </div>
@@ -366,7 +366,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       30
                     </p>
                   </div>
@@ -375,7 +375,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       31
                     </p>
                   </div>
@@ -384,7 +384,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       01
                     </p>
                   </div>
@@ -393,7 +393,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       02
                     </p>
                   </div>
@@ -402,7 +402,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       03
                     </p>
                   </div>
@@ -411,7 +411,7 @@ function EmojiCalendar() {
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
                 <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                   <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                    <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                       04
                     </p>
                   </div>
@@ -429,7 +429,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left ">
                 Today
               </p>
             </div>
@@ -454,7 +454,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 08:00
               </p>
             </div>
@@ -479,7 +479,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 09:00
               </p>
             </div>
@@ -504,7 +504,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 10:00
               </p>
             </div>
@@ -529,7 +529,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 11:00
               </p>
             </div>
@@ -554,12 +554,12 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 12:00
               </p>
             </div>
           </div>
-          <div className="flex-grow-0 flex-shrink-0 w-[63px] h-2 relative overflow-hidden bg-white"></div>
+          <div className="flex-grow-0 flex-shrink-0 w-[63px] h-2 relative overflow-hidden"></div>
           <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2">
             <div className="flex-grow-0 flex-shrink-0 w-[18px] h-[18px] relative">
               <img
@@ -568,7 +568,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left ">
                 Tomorrow
               </p>
             </div>
@@ -593,7 +593,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 13:00
               </p>
             </div>
@@ -618,7 +618,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 14:00
               </p>
             </div>
@@ -643,12 +643,12 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 15:00
               </p>
             </div>
           </div>
-          <div className="flex-grow-0 flex-shrink-0 w-[63px] h-2 relative overflow-hidden bg-white"></div>
+          <div className="flex-grow-0 flex-shrink-0 w-[63px] h-2 relative overflow-hidden"></div>
           <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2">
             <div className="flex-grow-0 flex-shrink-0 w-[18px] h-[18px] relative">
               <img
@@ -657,7 +657,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-base font-medium text-left ">
                 Vacations
               </p>
             </div>
@@ -682,7 +682,7 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                 01-02 to 14-02
               </p>
             </div>
@@ -692,10 +692,10 @@ function EmojiCalendar() {
       {/*left sidebar*/}
 
       <div className="flex flex-col justify-center items-center flex-grow h-[1024px] relative pl-px">
-        <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 p-4 bg-white border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60">
+        <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60">
           <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0">
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px] bg-white">
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px]">
                 <svg
                   width="16"
                   height="17"
@@ -714,11 +714,11 @@ function EmojiCalendar() {
               </div>
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-3xl text-left text-[#333]">
-                <span className="flex-grow-0 flex-shrink-0 text-3xl font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
+                <span className="flex-grow-0 flex-shrink-0 text-3xl font-medium text-left ">
                   January{" "}
                 </span>{" "}
-                <span className="flex-grow-0 flex-shrink-0 text-3xl text-left text-[#333]">
+                <span className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
                   2022
                 </span>
               </p>
@@ -798,7 +798,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Sun
               </p>
             </div>
@@ -811,7 +811,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Mon
               </p>
             </div>
@@ -824,7 +824,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Tue
               </p>
             </div>
@@ -837,7 +837,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Wed
               </p>
             </div>
@@ -850,7 +850,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Thur
               </p>
             </div>
@@ -863,7 +863,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Fri
               </p>
             </div>
@@ -876,7 +876,7 @@ function EmojiCalendar() {
               />
             </div>
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#333]">
+              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                 Sat
               </p>
             </div>
@@ -886,13 +886,19 @@ function EmojiCalendar() {
         <div className="self-stretch flex-grow relative w-full h-full">
           <div className="flex flex-col justify-center items-start w-full h-full">
             {weeks.map((week, index) => (
-              <div className="flex justify-start items-start self-stretch flex-grow" key={index}>
+              <div
+                className="flex justify-start items-start self-stretch flex-grow"
+                key={index}
+              >
                 {week.map((day) => (
-                  <div key={day.toString()} className="flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] bg-white border border-[#dadce0]/60">
+                  <div
+                    key={day.toString()}
+                    className="flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60"
+                  >
                     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                       <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                         <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                          <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                          <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
                             {dfs.format(day, "normalDateWithWeekday")}
                           </p>
                         </div>
