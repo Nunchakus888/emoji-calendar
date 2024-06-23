@@ -1,6 +1,6 @@
 import { AdapterDateFns } from "./DateFnsAdapter";
-import locale from "date-fns/locale/en-US";
-// import locale from "date-fns/locale/zh-CN";
+// import locale from "date-fns/locale/en-US";
+import locale from "date-fns/locale/zh-CN";
 import Operations from './operations';
 
 function EmojiCalendar() {
@@ -20,6 +20,7 @@ function EmojiCalendar() {
     console.log("----click", weeks);
     // setWeekStartsOn(weekStartsOn === 0 ? 1 : 0);
   };
+
   const aWeek = [
     {
       value: 0,
@@ -49,7 +50,13 @@ function EmojiCalendar() {
       value: 6,
       icon: 'party-popper.png',
     },
-  ].map(i => ({...i, label: locale.localize.day(i.value)}));
+  ];
+
+  if (locale.options.weekStartsOn === 1) aWeek.push(aWeek.shift());
+
+  aWeek.forEach(i => {
+    i.label = locale.localize.day(i.value);
+  });
 
   return (
     <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">

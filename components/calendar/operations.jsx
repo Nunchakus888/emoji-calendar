@@ -1,4 +1,5 @@
 'use client';
+
 import { Button } from "flowbite-react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import {AdapterDateFns} from "./DateFnsAdapter";
