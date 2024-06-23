@@ -1,5 +1,7 @@
 import { AdapterDateFns } from "./DateFnsAdapter";
 import locale from "date-fns/locale/en-US";
+// import locale from "date-fns/locale/zh-CN";
+import Operations from './operations';
 
 function EmojiCalendar() {
   // const [locale] = useState(defaultLocale);
@@ -8,12 +10,46 @@ function EmojiCalendar() {
   // const [weekStartsOn, setWeekStartsOn] = useState(0);
   // const weeks = useMemo(() => dfs.getWeekArray(new Date(), {weekStartsOn}), [weekStartsOn]);
   const dfs = new AdapterDateFns({ locale });
-  const weeks = dfs.getWeekArray(new Date(), { weekStartsOn: 0 });
-
+  const now = new Date();
+  const weeks = dfs.getWeekArray(now);
+  const year = dfs.getYear(now);
+  const month = dfs.getMonth(now) + 1;
+  const v = dfs.format(now, 'normalDate');
+  console.log('---v', v, dfs.format(now, 'year'));
   const switchWeekStartOn = () => {
     console.log("----click", weeks);
     // setWeekStartsOn(weekStartsOn === 0 ? 1 : 0);
   };
+  const aWeek = [
+    {
+      value: 0,
+      icon: 'woman-getting-massage.png',
+    },
+    {
+      value: 1,
+      icon: 'zombie.png',
+    },
+    {
+      value: 2,
+      icon: 'hot-beverage.png',
+    },
+    {
+      value: 3,
+      icon: 'camel.png',
+    },
+    {
+      value: 4,
+      icon: 'brain.png',
+    },
+    {
+      value: 5,
+      icon: 'cocktail-glass.png',
+    },
+    {
+      value: 6,
+      icon: 'party-popper.png',
+    },
+  ].map(i => ({...i, label: locale.localize.day(i.value)}));
 
   return (
     <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">
@@ -716,10 +752,10 @@ function EmojiCalendar() {
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
               <p className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
                 <span className="flex-grow-0 flex-shrink-0 text-3xl font-medium text-left ">
-                  January{" "}
+                  {month}{" "}
                 </span>{" "}
                 <span className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
-                  2022
+                  {year}
                 </span>
               </p>
             </div>
@@ -764,6 +800,8 @@ function EmojiCalendar() {
                 ></path>{" "}
               </svg>
             </div>
+            <Operations />
+
             <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 h-[35px] relative gap-1 p-2 rounded-[3px] bg-[#0c41ff]">
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
                 <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-white">
@@ -789,99 +827,29 @@ function EmojiCalendar() {
           </div>
         </div>
 
+        {/* header */}
         <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]">
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/woman-getting-massage.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Sun
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/zombie.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Mon
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/hot-beverage.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Tue
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/camel.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Wed
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/brain.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Thur
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/cocktail-glass.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Fri
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5">
-            <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative">
-              <img
-                src="icons/party-popper.png"
-                className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
-              />
-            </div>
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
-                Sat
-              </p>
-            </div>
-          </div>
+          {
+            aWeek.map((item) => (
+              <div key={item.label} className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5" >
+                <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative" >
+                  <img
+                    src={`icons/${item.icon}`}
+                    className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover"
+                  />
+                </div >
+                <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5" >
+                  <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left " >
+                    {
+                      item.label
+                    }
+                  </p >
+                </div >
+              </div >
+            ))
+          }
         </div>
+        {/* header */}
 
         <div className="self-stretch flex-grow relative w-full h-full">
           <div className="flex flex-col justify-center items-start w-full h-full">

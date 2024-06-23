@@ -235,6 +235,10 @@ export class AdapterDateFns {
     return dateFns.isValid(value);
   };
 
+  public formatLong = (value: Date, formatKey: keyof AdapterFormats): string => {
+    return dateFns.format
+  };
+
   public format = (value: Date, formatKey: keyof AdapterFormats): string => {
     return this.formatByString(value, this.formats[formatKey]);
   };
@@ -420,7 +424,7 @@ export class AdapterDateFns {
     return dateFns.getDaysInMonth(value);
   };
 
-  public getWeekArray = (value: Date, options): Date[][] => {
+  public getWeekArray = (value: Date, options = {}): Date[][] => {
     const start = this.startOfWeek(this.startOfMonth(value), options);
     const end = this.endOfWeek(this.endOfMonth(value), options);
 
@@ -458,4 +462,5 @@ export class AdapterDateFns {
 
     return years;
   };
+  
 }
