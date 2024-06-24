@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import "./globals.css";
+import "../globals.css";
 import { Nav } from "@/components/Nav";
 import { cn } from "@/utils";
-
 export const metadata: Metadata = {
   title: "Emoji Calendar😁",
   description: "A Calendar of Emoji~😄",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
