@@ -21,7 +21,7 @@ export default async function Page({params}) {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <EmojiCalendar lang={params.lang} />
+      <EmojiCalendar lang={params.lang || 'en-US'} />
     </div>
   );
 }
