@@ -236,7 +236,7 @@ export class AdapterDateFns {
   };
 
   public formatLong = (value: Date, formatKey: keyof AdapterFormats): string => {
-    return dateFns.format
+    return dateFns.format(value, formatKey);
   };
 
   public format = (value: Date, formatKey: keyof AdapterFormats): string => {
