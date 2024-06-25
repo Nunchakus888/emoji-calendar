@@ -1,9 +1,12 @@
 import { AdapterDateFns } from "./DateFnsAdapter";
-import locale from "date-fns/locale/zh-CN";
+// import locale from "date-fns/locale/zh-CN";
 import { NavGroup, Operations } from './operations';
 import Sidebar from './Sidebar';
+import * as localeMap from 'date-fns/locale';
 
-function EmojiCalendar({ locale }) {
+function EmojiCalendar({ lang }) {
+  const locale = localeMap[lang.replace(/-/g, '')] || localeMap.enUS;
+  
   console.log('EmojiCalendar---params', locale);
 
   // const [lang] = useState(defaultLocale);
