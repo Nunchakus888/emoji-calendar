@@ -204,7 +204,7 @@ const defaultFormats: AdapterFormats = {
 export class AdapterDateFns {
   locale: typeof defaultLocale;
   formats: AdapterFormats;
-  dateFns: dateFns;
+  dateFns: any;
 
   constructor({ locale, formats }: AdapterOptions<DateFnsLocale, never> = {}) {
     if (typeof addDays !== "function") {
