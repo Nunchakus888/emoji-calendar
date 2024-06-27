@@ -5,6 +5,7 @@ import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
 import { Nav } from "@/components/Nav";
 import Select from '@/components/calendar/Select'
+import { cn } from "@/utils";
 
 function EmojiCalendar({ lang }) {
   const locale = localeMap[lang.replace(/-/g, '')] || localeMap.enUS;
@@ -208,7 +209,9 @@ function EmojiCalendar({ lang }) {
                 {week.map((day) => (
                   <div
                     key={day.toString()}
-                    className="flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60"
+                    className={
+                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`, dfs.dateFns.isToday(day) ? 'bg-slate-100 dark:bg-slate-800' : '')
+                    }
                   >
                     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                       <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
