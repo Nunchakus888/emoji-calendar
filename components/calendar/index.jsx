@@ -3,6 +3,8 @@ import { AdapterDateFns } from "./DateFnsAdapter";
 import { NavGroup, Operations } from './operations';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
+import { Nav } from "@/components/Nav";
+import Select from '@/components/calendar/Select'
 
 function EmojiCalendar({ lang }) {
   const locale = localeMap[lang.replace(/-/g, '')] || localeMap.enUS;
@@ -144,8 +146,10 @@ function EmojiCalendar({ lang }) {
             </div>
 
             <NavGroup />
+            <Select lang={lang} />
+            <Nav />
 
-            <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 h-[35px] relative gap-1 p-2 rounded-[3px] bg-[#0c41ff]">
+            {/*<div className="flex justify-center items-center flex-grow-0 flex-shrink-0 h-[35px] relative gap-1 p-2 rounded-[3px] bg-[#0c41ff]">
               <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
                 <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-white">
                   Add event
@@ -166,7 +170,7 @@ function EmojiCalendar({ lang }) {
                   fill="white"
                 ></path>{" "}
               </svg>
-            </div>
+            </div>*/}
           </div>
         </div>
 

@@ -23,7 +23,6 @@ export default async function RootLayout({
           "flex flex-col min-h-screen",
         )}
       >
-        <Nav />
         {children}
       </body>
     </html>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HumeLogo from "./logos/Hume";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
@@ -10,13 +10,11 @@ import pkg from "@/package.json";
 export const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  useLayoutEffect(() => {
-    const el = document.documentElement;
-
-    if (el.classList.contains("dark")) {
-      setIsDarkMode(true);
+  useEffect(() => {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
     } else {
-      setIsDarkMode(false);
+      document.documentElement.classList.remove('dark')
     }
   }, []);
 
@@ -30,12 +28,13 @@ export const Nav = () => {
     const el = document.documentElement;
     el.classList.toggle("dark");
     setIsDarkMode((prev) => !prev);
+    localStorage.theme = localStorage.theme === 'dark' ? '' : 'dark';
   };
 
   return (
     <div
       className={
-        "px-4 py-2 flex items-center h-14 z-50 bg-card border-b border-border"
+        "px-4 py-2 flex items-center h-14 z-50 bg-card border-border"
       }
     >
       <div>{/*<HumeLogo className={"h-5 w-auto"} />*/}</div>
