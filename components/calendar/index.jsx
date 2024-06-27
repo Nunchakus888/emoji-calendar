@@ -128,25 +128,7 @@ function EmojiCalendar({ lang }) {
             </div>
           </div>
           <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
-            <div className="flex justify-between items-center flex-grow-0 flex-shrink-0 w-8 h-8 relative p-2 rounded-[999px] bg-neutral-100">
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
-                preserveAspectRatio="none"
-              >
-                {" "}
-                <path
-                  d="M14.9842 13.3609L12.3881 10.7648C12.271 10.6476 12.1121 10.5825 11.9455 10.5825H11.521C12.2397 9.66331 12.6667 8.50717 12.6667 7.24948C12.6667 4.25759 10.2425 1.83334 7.25061 1.83334C4.25871 1.83334 1.83447 4.25759 1.83447 7.24948C1.83447 10.2414 4.25871 12.6656 7.25061 12.6656C8.5083 12.6656 9.66444 12.2386 10.5836 11.5199V11.9443C10.5836 12.111 10.6487 12.2698 10.7659 12.387L13.362 14.9831C13.6068 15.2279 14.0026 15.2279 14.2447 14.9831L14.9816 14.2462C15.2264 14.0014 15.2264 13.6056 14.9842 13.3609ZM7.25061 10.5825C5.40964 10.5825 3.9176 9.09305 3.9176 7.24948C3.9176 5.40852 5.40704 3.91647 7.25061 3.91647C9.09158 3.91647 10.5836 5.40591 10.5836 7.24948C10.5836 9.09045 9.09418 10.5825 7.25061 10.5825Z"
-                  fill="#6A778B"
-                ></path>{" "}
-              </svg>
-            </div>
-
-            <NavGroup />
+            {/*<NavGroup />*/}
             <Select lang={lang} />
             <Nav />
 
