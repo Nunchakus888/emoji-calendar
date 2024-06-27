@@ -210,7 +210,7 @@ function EmojiCalendar({ lang }) {
                   <div
                     key={day.toString()}
                     className={
-                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`, dfs.dateFns.isToday(day) ? 'bg-slate-100 dark:bg-slate-800' : '')
+                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`, dfs.dateFns.isToday(day) ? 'bg-slate-50 dark:bg-zinc-800' : '')
                     }
                   >
                     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
