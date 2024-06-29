@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "ANALYZE=true next build",
     "start": "next start",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
@@ -14,6 +15,7 @@
   "dependencies": {
     "@humeai/voice": "^0.1.6",
     "@humeai/voice-react": "^0.1.6",
+    "@next/bundle-analyzer": "^14.2.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toggle": "^1.0.3",

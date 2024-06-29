@@ -2,7 +2,6 @@
 
 import * as locales from 'date-fns/locale';
 
-
 function App({ lang }) {
   const now = new Date();
 

@@ -3,10 +3,12 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "../globals.css";
 import { Nav } from "@/components/Nav";
+
+import Footer from "@/components/Footer";
 import { cn } from "@/utils";
 export const metadata: Metadata = {
-  title: "Emoji Calendar😁",
-  description: "A Calendar of Emoji~😄",
+  title: "Printable Calendars",
+  description: `Printing a calendar is as simple as clicking a button. Just hit the big red \"Print\" button and you have your calendar. Want to add notes? \n Click on a day and start typing. No internet connection? No problem. Download one of our many available PDF calendars and print directly from your computer.`,
 };
 
 export default async function RootLayout({
@@ -24,6 +26,15 @@ export default async function RootLayout({
         )}
       >
         {children}
+        <Footer>
+          {
+            metadata.description.split("\n").map((line, index) => (
+              <p key={index} className={"mb-1"}>
+                {line}
+              </p>
+            ))
+          }
+        </Footer>
       </body>
     </html>
   );
