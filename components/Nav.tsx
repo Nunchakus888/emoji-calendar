@@ -51,7 +51,7 @@ export const Nav = () => {
               <Moon className={"size-4"} />
             )}
           </span>
-          <span>{isDarkMode ? "Light" : "Dark"} Mode</span>
+          {/*<span>{isDarkMode ? "Light" : "Dark"} Mode</span>*/}
         </Button>
       </div>
     </div>

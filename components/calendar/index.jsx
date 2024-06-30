@@ -1,6 +1,7 @@
 import { AdapterDateFns } from "./DateFnsAdapter";
 // import locale from "date-fns/locale/zh-CN";
 import { NavGroup, Operations } from './operations';
+import {Tabs, NavTabs} from './tabs';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
 import { Nav } from "@/components/Nav";
@@ -104,31 +105,11 @@ function EmojiCalendar({ lang }) {
               </p>
             </div>
 
-            <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 h-[35px] relative gap-1 p-2 rounded-[3px] border border-[#0c41ff]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-[#0c41ff]">
-                  Month
-                </p>
-              </div>
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
-                preserveAspectRatio="none"
-              >
-                {" "}
-                <path
-                  d="M7.98176 12.3312L2.04789 6.39727C1.76171 6.11108 1.76171 5.6471 2.04789 5.36095L2.73998 4.66886C3.02568 4.38316 3.48871 4.38261 3.77508 4.66763L8.49993 9.37035L13.2248 4.66763C13.5111 4.38261 13.9742 4.38316 14.2599 4.66886L14.9519 5.36095C15.2381 5.64713 15.2381 6.11111 14.9519 6.39727L9.01811 12.3312C8.73192 12.6173 8.26794 12.6173 7.98176 12.3312Z"
-                  fill="#0C41FF"
-                ></path>{" "}
-              </svg>
-            </div>
+            <NavTabs />
+
           </div>
           <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
-            {/*<NavGroup />*/}
+            <Tabs />
             <Select lang={lang} />
             <Nav />
 
