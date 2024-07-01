@@ -2,9 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import { AdapterDateFns } from "./DateFnsAdapter";
-// import locale from "date-fns/locale/zh-CN";
-import { NavGroup, Operations } from './operations';
-import {Tabs, NavTabs} from './tabs';
+
+import {Tabs, DaysNav} from './tabs';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
 import { Nav } from "@/components/Nav";
@@ -13,14 +12,13 @@ import { cn } from "@/utils";
 
 function EmojiCalendar({ lang }) {
   const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
-  console.log('EmojiCalendar---params', locale);
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
-  const now = new Date();
-  const [weeks, setWeeks] = useState(() => {
-    const ws = dfs.getWeekArray(now);
-    return ws.map(weeks => {
+  const [current, setCurrent] = useState(new Date());
+
+  const weeks = useMemo(() => {
+    return dfs.getWeekArray(current).map(weeks => {
       return weeks.map(day => {
         return {
           day,
@@ -30,16 +28,7 @@ function EmojiCalendar({ lang }) {
         }
       })
     })
-  });
-
-  const year = dfs.getYear(now);
-  const month = dfs.getMonth(now) + 1;
-  const v = dfs.format(now, 'normalDate');
-  console.log('---v', v, dfs.format(now, 'year'));
-  const switchWeekStartOn = () => {
-    console.log("----click", weeks);
-    // setWeekStartsOn(weekStartsOn === 0 ? 1 : 0);
-  };
+  }, [current]);
 
   const aWeek = [
     {
@@ -78,6 +67,16 @@ function EmojiCalendar({ lang }) {
     i.label = locale.localize.day(i.value);
   });
 
+  const daysChange = (step) => {
+    console.log('====e', step);
+    if (!step) {
+      setCurrent(new Date());
+      return;
+    }
+    const v = dfs.dateFns.addMonths(current, step);
+    setCurrent(v);
+  }
+
   return (
     <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">
       <Sidebar />
@@ -106,46 +105,20 @@ function EmojiCalendar({ lang }) {
             </div>
 
             <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
+              <p className="flex-grow-0 flex-shrink-0 text-3xl text-left flex justify-between">
                 <span className="flex-grow-0 flex-shrink-0 text-3xl font-medium text-left ">
-                  {month}{" "}
+                  {dfs.formatByString(current, 'MM yyyy')}
                 </span>{" "}
-                <span className="flex-grow-0 flex-shrink-0 text-3xl text-left ">
-                  {year}
-                </span>
               </p>
             </div>
 
-            <NavTabs />
+            <DaysNav onChange={daysChange}/>
 
           </div>
           <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
             <Tabs />
             <Select lang={lang} />
             <Nav />
-
-            {/*<div className="flex justify-center items-center flex-grow-0 flex-shrink-0 h-[35px] relative gap-1 p-2 rounded-[3px] bg-[#0c41ff]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left text-white">
-                  Add event
-                </p>
-              </div>
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
-                preserveAspectRatio="none"
-              >
-                {" "}
-                <path
-                  d="M8.49992 1.83334C4.81712 1.83334 1.83325 4.81721 1.83325 8.50001C1.83325 12.1828 4.81712 15.1667 8.49992 15.1667C12.1827 15.1667 15.1666 12.1828 15.1666 8.50001C15.1666 4.81721 12.1827 1.83334 8.49992 1.83334ZM12.3709 9.2527C12.3709 9.43012 12.2257 9.57528 12.0483 9.57528H9.57519V12.0484C9.57519 12.2258 9.43003 12.371 9.25261 12.371H7.74723C7.56981 12.371 7.42465 12.2258 7.42465 12.0484V9.57528H4.95153C4.77411 9.57528 4.62895 9.43012 4.62895 9.2527V7.74732C4.62895 7.5699 4.77411 7.42474 4.95153 7.42474H7.42465V4.95162C7.42465 4.7742 7.56981 4.62904 7.74723 4.62904H9.25261C9.43003 4.62904 9.57519 4.7742 9.57519 4.95162V7.42474H12.0483C12.2257 7.42474 12.3709 7.5699 12.3709 7.74732V9.2527Z"
-                  fill="white"
-                ></path>{" "}
-              </svg>
-            </div>*/}
           </div>
         </div>
 
