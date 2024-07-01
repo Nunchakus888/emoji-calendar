@@ -1,3 +1,6 @@
+'use client';
+
+import { useMemo, useState } from 'react';
 import { AdapterDateFns } from "./DateFnsAdapter";
 // import locale from "date-fns/locale/zh-CN";
 import { NavGroup, Operations } from './operations';
@@ -9,18 +12,26 @@ import Select from '@/components/calendar/Select'
 import { cn } from "@/utils";
 
 function EmojiCalendar({ lang }) {
-  const locale = localeMap[lang.replace(/-/g, '')] || localeMap.enUS;
-  
+  const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
   console.log('EmojiCalendar---params', locale);
 
-  // const [lang] = useState(defaultLocale);
-  // const dfs = useMemo(() => new AdapterDateFns({locale}), [lang])
-  //
-  // const [weekStartsOn, setWeekStartsOn] = useState(0);
-  // const weeks = useMemo(() => dfs.getWeekArray(new Date(), {weekStartsOn}), [weekStartsOn]);
-  const dfs = new AdapterDateFns({ locale });
+  const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
+
   const now = new Date();
-  const weeks = dfs.getWeekArray(now);
+  const [weeks, setWeeks] = useState(() => {
+    const ws = dfs.getWeekArray(now);
+    return ws.map(weeks => {
+      return weeks.map(day => {
+        return {
+          day,
+          value: day,
+          label: dfs.format(day, "normalDateWithWeekday"),
+          isToday: dfs.dateFns.isToday(day),
+        }
+      })
+    })
+  });
+
   const year = dfs.getYear(now);
   const month = dfs.getMonth(now) + 1;
   const v = dfs.format(now, 'normalDate');
@@ -141,7 +152,7 @@ function EmojiCalendar({ lang }) {
         {/* header */}
         <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]">
           {
-            aWeek.map((item) => (
+            aWeek?.map((item) => (
               <div key={item.label} className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5" >
                 <div className="flex-grow-0 flex-shrink-0 w-[15px] h-[15px] relative" >
                   <img
@@ -169,18 +180,18 @@ function EmojiCalendar({ lang }) {
                 className="flex justify-start items-start self-stretch flex-grow"
                 key={index}
               >
-                {week.map((day) => (
+                {week.map((item) => (
                   <div
-                    key={day.toString()}
+                    key={item.day}
                     className={
-                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`, dfs.dateFns.isToday(day) ? 'bg-slate-50 dark:bg-zinc-800' : '')
+                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`,item.isToday ? 'bg-slate-50 dark:bg-zinc-800' : '')
                     }
                   >
                     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
                       <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
                         <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
                           <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
-                            {dfs.format(day, "normalDateWithWeekday")}
+                            {item.label}
                           </p>
                         </div>
                       </div>
