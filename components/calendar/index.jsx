@@ -6,8 +6,7 @@ import { AdapterDateFns } from "./DateFnsAdapter";
 import {Tabs, DaysNav} from './tabs';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
-import { Nav } from "@/components/Nav";
-import Select from '@/components/calendar/Select'
+
 import { cn } from "@/utils";
 
 function EmojiCalendar({ lang }) {
@@ -79,13 +78,13 @@ function EmojiCalendar({ lang }) {
 
   return (
     <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">
-      <Sidebar />
+      <Sidebar lang={lang} />
 
       <div className="flex flex-col justify-center items-center flex-grow h-[1024px] relative pl-px">
-        <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60">
-          <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0">
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px]">
+        <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60" >
+          <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4" >
+            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0" >
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px]" >
                 <svg
                   width="16"
                   height="17"
@@ -95,35 +94,26 @@ function EmojiCalendar({ lang }) {
                   className="flex-grow-0 flex-shrink-0 w-4 h-4 relative"
                   preserveAspectRatio="none"
                 >
-                  {" "}
-                  <path
-                    d="M1.80944 4.80951H14.1904C14.4534 4.80951 14.6666 4.59633 14.6666 4.33332V3.14285C14.6666 2.87984 14.4534 2.66666 14.1904 2.66666H1.80944C1.54644 2.66666 1.33325 2.87984 1.33325 3.14285V4.33332C1.33325 4.59633 1.54644 4.80951 1.80944 4.80951ZM1.80944 9.57142H14.1904C14.4534 9.57142 14.6666 9.35823 14.6666 9.09523V7.90475C14.6666 7.64175 14.4534 7.42856 14.1904 7.42856H1.80944C1.54644 7.42856 1.33325 7.64175 1.33325 7.90475V9.09523C1.33325 9.35823 1.54644 9.57142 1.80944 9.57142ZM1.80944 14.3333H14.1904C14.4534 14.3333 14.6666 14.1201 14.6666 13.8571V12.6667C14.6666 12.4037 14.4534 12.1905 14.1904 12.1905H1.80944C1.54644 12.1905 1.33325 12.4037 1.33325 12.6667V13.8571C1.33325 14.1201 1.54644 14.3333 1.80944 14.3333Z"
-                    fill="#333333"
-                  ></path>{" "}
-                </svg>
-              </div>
-            </div>
+                  {" "} <path
+                  d="M1.80944 4.80951H14.1904C14.4534 4.80951 14.6666 4.59633 14.6666 4.33332V3.14285C14.6666 2.87984 14.4534 2.66666 14.1904 2.66666H1.80944C1.54644 2.66666 1.33325 2.87984 1.33325 3.14285V4.33332C1.33325 4.59633 1.54644 4.80951 1.80944 4.80951ZM1.80944 9.57142H14.1904C14.4534 9.57142 14.6666 9.35823 14.6666 9.09523V7.90475C14.6666 7.64175 14.4534 7.42856 14.1904 7.42856H1.80944C1.54644 7.42856 1.33325 7.64175 1.33325 7.90475V9.09523C1.33325 9.35823 1.54644 9.57142 1.80944 9.57142ZM1.80944 14.3333H14.1904C14.4534 14.3333 14.6666 14.1201 14.6666 13.8571V12.6667C14.6666 12.4037 14.4534 12.1905 14.1904 12.1905H1.80944C1.54644 12.1905 1.33325 12.4037 1.33325 12.6667V13.8571C1.33325 14.1201 1.54644 14.3333 1.80944 14.3333Z"
+                  fill="#333333"
+                ></path >{" "}
+                </svg >
+              </div >
+            </div >
+          </div >
 
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-              <p className="flex-grow-0 flex-shrink-0 text-3xl text-left flex justify-between">
-                <span className="flex-grow-0 flex-shrink-0 text-3xl font-medium text-left ">
-                  {dfs.formatByString(current, 'MM yyyy')}
-                </span>{" "}
-              </p>
-            </div>
-
-            <DaysNav onChange={daysChange}/>
-
-          </div>
-          <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4">
+          <div className="flex justify-between items-center w-full" >
+              <span className="text-3xl font-medium w-48 text-left" >
+                {dfs.formatByString(current, 'MMM yyyy')}
+              </span >
             <Tabs />
-            <Select lang={lang} />
-            <Nav />
-          </div>
-        </div>
+            <DaysNav onChange={daysChange} />
+          </div >
+        </div >
 
         {/* header */}
-        <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]">
+        <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]" >
           {
             aWeek?.map((item) => (
               <div key={item.label} className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5" >

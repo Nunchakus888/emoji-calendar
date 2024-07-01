@@ -1,8 +1,9 @@
-
-function App() {
+import { Nav } from "@/components/Nav";
+import Select from '@/components/calendar/Select'
+function App({lang}) {
 
   return (
-    <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[250px] border-t-0 border-r border-b-0 border-l-0 border-[#dadce0]" >
+    <div className="relative flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 w-[250px] border-t-0 border-r border-b-0 border-l-0 border-[#dadce0]" >
       <div className="flex flex-col justify-start items-start self-stretch flex-grow-0 flex-shrink-0 gap-2.5 px-4 py-2.5" >
         <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5" >
           <p className="flex-grow-0 flex-shrink-0 text-lg font-medium text-left " >
@@ -672,6 +673,11 @@ function App() {
           </div >
         </div >
       </div >
+
+      <div className="absolute bottom-0 left-0 flex items-center gap-1">
+        <Nav />
+        <Select lang={lang} />
+      </div>
     </div >
   );
 }
