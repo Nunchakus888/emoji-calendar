@@ -169,7 +169,7 @@ function EmojiCalendar({ lang }) {
                       cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60 text-xs`,item.class)
                     }
                   >
-                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1 size-24 md:size-36" >
+                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-2 size-24 md:size-36" >
                       {item.label}
                     </div >
                   </div >
