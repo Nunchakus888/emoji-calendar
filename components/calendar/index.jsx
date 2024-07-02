@@ -20,10 +20,28 @@ function EmojiCalendar({ lang }) {
   const weeks = useMemo(() => {
     return dfs.getWeekArray(current).map(weeks => {
       return weeks.map(day => {
+        let label = '';
+        const params = {
+          class: '',
+          label: '',
+          isToday: !1,
+        }
+
+        if (dfs.dateFns.isFirstDayOfMonth(day)) {
+          params.label = dfs.formatByString(day, 'MMM do');
+          params.class = 'font-medium';
+        } else {
+          params.label = dfs.formatByString(day, 'do ');
+        }
+
+        if (dfs.dateFns.isToday(day)) {
+          params.isToday = !0;
+          params.class += 'bg-slate-50 dark:bg-zinc-800 ';
+        }
         return {
           day,
           value: day,
-          label: dfs.format(day, "normalDateWithWeekday"),
+          ...params,
           isToday: dfs.dateFns.isToday(day),
         }
       })
@@ -148,25 +166,19 @@ function EmojiCalendar({ lang }) {
                   <div
                     key={item.day}
                     className={
-                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60`,item.isToday ? 'bg-slate-50 dark:bg-zinc-800' : '')
+                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60 text-xs`,item.class)
                     }
                   >
-                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-                      <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-                        <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                          <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left ">
-                            {item.label}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1 size-24 md:size-36" >
+                      {item.label}
+                    </div >
+                  </div >
                 ))}
-              </div>
+              </div >
             ))}
-          </div>
-        </div>
-      </div>
+          </div >
+        </div >
+      </div >
     </div>
   );
 }
