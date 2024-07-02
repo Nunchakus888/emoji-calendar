@@ -6,6 +6,7 @@ import { AdapterDateFns } from "./DateFnsAdapter";
 import {Tabs, DaysNav} from './tabs';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
+import './print/index.css';
 
 import { cn } from "@/utils";
 
@@ -103,7 +104,7 @@ function EmojiCalendar({ lang }) {
             </div >
           </div >
 
-          <div className="flex justify-between items-center w-full" >
+          <div className="flex justify-between items-center w-full print:hidden" >
               <span className="text-3xl font-medium w-48 text-left" >
                 {dfs.formatByString(current, 'MMM yyyy')}
               </span >

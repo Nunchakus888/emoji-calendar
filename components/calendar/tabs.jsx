@@ -1,6 +1,8 @@
 'use client';
 import {SlArrowLeft, SlArrowRight} from "react-icons/sl";
 
+// todo replace icons to https://lucide.dev/icons/chevron-left;
+
 const operationsMap = {
   daysNav: [
     {
