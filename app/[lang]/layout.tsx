@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -22,19 +23,10 @@ export default async function RootLayout({
         className={cn(
           GeistSans.variable,
           GeistMono.variable,
-          "flex flex-col min-h-screen",
+          "flex flex-col h-screen container",
         )}
       >
         {children}
-        <Footer>
-          {
-            metadata.description.split("\n").map((line, index) => (
-              <p key={index} className={"mb-1"}>
-                {line}
-              </p>
-            ))
-          }
-        </Footer>
       </body>
     </html>
   );

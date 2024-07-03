@@ -1,4 +1,6 @@
 import EmojiCalendar from "@/components/calendar";
+import Footer from "@/components/Footer";
+import {metadata} from "@/app/[lang]/layout";
 
 
 // async function getLocaleData(locale) {
@@ -12,16 +14,25 @@ import EmojiCalendar from "@/components/calendar";
 //   }
 // }
 
-export default async function Page({params}) {
+export default async function Page({ lang }) {
   
   // const locale = await getLocaleData(params.lang);
   
-  console.log('RootLayout----params', params.lang);
+  console.log('RootLayout----params', lang);
 
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      <EmojiCalendar lang={params.lang || 'en-US'} />
-    </div>
+    <>
+      <EmojiCalendar lang={lang || 'en-US'} />
+      <Footer lang={lang}>
+        {
+          metadata.description.split("\n").map((line, index) => (
+            <p key={index} className={"mb-1"}>
+              {line}
+            </p>
+          ))
+        }
+      </Footer>
+    </>
   );
 }

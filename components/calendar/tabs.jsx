@@ -41,7 +41,7 @@ const Tabs = () => {
 
 const DaysNav = ({ onChange }) => {
   return (
-    <div className="flex items-center gap-4 px-2 cursor-pointer select-none" >
+    <div className="flex items-center gap-4 px-2 cursor-pointer select-none print:hidden" >
       {
         operationsMap.daysNav.map(({ label, value }) => (
           <span key={value} className="hover:text-blue-600" onClick={() => onChange(value)}>

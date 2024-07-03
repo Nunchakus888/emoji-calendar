@@ -6,7 +6,6 @@ import { AdapterDateFns } from "./DateFnsAdapter";
 import {Tabs, DaysNav} from './tabs';
 import Sidebar from './Sidebar';
 import * as localeMap from 'date-fns/locale';
-import './print/index.css';
 
 import { cn } from "@/utils";
 
@@ -96,14 +95,14 @@ function EmojiCalendar({ lang }) {
   }
 
   return (
-    <div className="flex justify-start items-start w-[1465px] overflow-hidden rounded-md border border-[#9d9e9f]/60">
-      <Sidebar lang={lang} />
+    <div className="w-full mx-auto h-full flex overflow-hidden rounded-md border border-[#9d9e9f]/60">
+      {/*<Sidebar lang={lang} />*/}
 
-      <div className="flex flex-col justify-center items-center flex-grow h-[1024px] relative pl-px">
-        <div className="flex justify-between items-center self-stretch flex-grow-0 flex-shrink-0 p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60" >
-          <div className="flex justify-start items-center flex-grow-0 flex-shrink-0 gap-4" >
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0" >
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px]" >
+      <div className="w-full h-full flex flex-col justify-between items-center flex-grow relative pl-px ">
+        <div className="flex justify-between items-center self-stretch p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60" >
+          <div className="flex justify-start items-center gap-4 print:hidden" >
+            <div className="flex justify-start items-start" >
+              <div className="flex justify-center items-center w-[35px] h-[35px] relative gap-1 p-2 rounded-[999px]" >
                 <svg
                   width="16"
                   height="17"
@@ -122,17 +121,17 @@ function EmojiCalendar({ lang }) {
             </div >
           </div >
 
-          <div className="flex justify-between items-center w-full print:hidden" >
+          <div className="flex justify-between items-center w-full" >
               <span className="text-3xl font-medium w-48 text-left" >
                 {dfs.formatByString(current, 'MMM yyyy')}
               </span >
-            <Tabs />
+            {/*<Tabs />*/}
             <DaysNav onChange={daysChange} />
           </div >
         </div >
 
         {/* header */}
-        <div className="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]" >
+        <div className="flex flex-1 justify-start items-start self-stretch border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]" >
           {
             aWeek?.map((item) => (
               <div key={item.label} className="flex justify-center items-center flex-grow h-6 relative gap-2.5 px-2.5" >
@@ -155,21 +154,21 @@ function EmojiCalendar({ lang }) {
         </div>
         {/* header */}
 
-        <div className="self-stretch flex-grow relative w-full h-full">
-          <div className="flex flex-col justify-center items-start w-full h-full">
+        <div className="relative w-full h-full">
+          <div className="flex flex-col w-full h-full">
             {weeks.map((week, index) => (
               <div
-                className="flex justify-start items-start self-stretch flex-grow"
+                className="flex w-full flex-1 flex-grow flex-shrink"
                 key={index}
               >
                 {week.map((item) => (
                   <div
                     key={item.day}
                     className={
-                      cn(`flex flex-col justify-start items-start self-stretch flex-grow gap-2.5 px-1 py-[3px] border border-[#dadce0]/60 text-xs`,item.class)
+                      cn(`gap-2.5 px-1 py-[3px] border border-[#dadce0]/60 text-xs flex-1 w-full h-full flex-grow flex-shrink`,item.class)
                     }
                   >
-                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-2 size-24 md:size-36" >
+                    <div className="gap-2.5 p-2 md:size-24" >
                       {item.label}
                     </div >
                   </div >
