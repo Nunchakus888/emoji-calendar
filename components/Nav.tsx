@@ -11,10 +11,14 @@ export const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
@@ -28,15 +32,11 @@ export const Nav = () => {
     const el = document.documentElement;
     el.classList.toggle("dark");
     setIsDarkMode((prev) => !prev);
-    localStorage.theme = localStorage.theme === 'dark' ? '' : 'dark';
+    localStorage.theme = localStorage.theme === "dark" ? "" : "dark";
   };
 
   return (
-    <div
-      className={
-        "p-2 flex items-center h-14 z-50 bg-card border-border"
-      }
-    >
+    <div className={"p-2 flex items-center h-14 z-50 bg-card border-border"}>
       <div>{/*<HumeLogo className={"h-5 w-auto"} />*/}</div>
       <div className={"ml-auto flex items-center gap-1"}>
         <Button

@@ -237,7 +237,10 @@ export class AdapterDateFns {
     return dateFns.isValid(value);
   };
 
-  public formatLong = (value: Date, formatKey: keyof AdapterFormats): string => {
+  public formatLong = (
+    value: Date,
+    formatKey: keyof AdapterFormats,
+  ): string => {
     return dateFns.format(value, formatKey);
   };
 
@@ -464,5 +467,4 @@ export class AdapterDateFns {
 
     return years;
   };
-  
 }
