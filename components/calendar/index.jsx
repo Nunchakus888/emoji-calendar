@@ -9,6 +9,10 @@ import * as localeMap from 'date-fns/locale';
 
 import { cn } from "@/utils";
 
+import Footer from "@/components/Footer";
+import { metadata } from "@/utils/config"
+
+
 function EmojiCalendar({ lang }) {
   const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
 
@@ -178,6 +182,16 @@ function EmojiCalendar({ lang }) {
           </div >
         </div >
       </div >
+
+      <Footer lang={locale}>
+        {
+          metadata.description.split("\n").map((line, index) => (
+            <p key={index} className={"mb-1"}>
+              {line}
+            </p>
+          ))
+        }
+      </Footer>
     </div>
   );
 }
