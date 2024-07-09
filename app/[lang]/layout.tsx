@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "../globals.css";
@@ -25,6 +27,7 @@ export default async function RootLayout({
       >
         {children}
       </body>
+      <GoogleAnalytics gaId="G-R61JNS0P7G" />
     </html>
   );
 }
