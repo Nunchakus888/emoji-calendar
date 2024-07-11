@@ -2,17 +2,16 @@
 
 import { Nav } from "@/components/Nav";
 import Select from "@/components/calendar/Select";
-import { Printer } from "lucide-react";
+import { IoPrintOutline } from "react-icons/io5";
+
 const Footer = ({ children, lang }) => {
   const print = () => {
     return typeof window !== undefined ? window.print() : 0;
   };
   return (
     <div className="w-full py-4 text-center text-xs text-slate-400 flex items-center justify-between print:hidden">
-      <Printer
-        className="cursor-pointer"
-        size={24}
-        absoluteStrokeWidth
+      <IoPrintOutline
+        className="cursor-pointer size-5"
         onClick={print}
       />
 

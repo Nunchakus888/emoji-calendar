@@ -42,7 +42,7 @@ function EmojiCalendar({ lang }) {
 
         if (dfs.dateFns.isToday(day)) {
           params.isToday = !0;
-          params.class += "bg-slate-50 dark:bg-zinc-800 ";
+          params.class += "bg-slate-100 dark:bg-zinc-800 ";
         }
         return {
           day,
@@ -125,24 +125,25 @@ function EmojiCalendar({ lang }) {
               key={item.label}
               className="flex justify-center items-center flex-grow h-6 relative gap-2.5"
             >
-              <div className="flex-grow-0 flex-shrink-0 h-[15px] relative">
-                <img
-                  src={`icons/${item.icon}`}
-                  className="w-[15px] h-[15px] absolute left-[-1px] top-[-1px] object-cover hidden md:inline"
-                />
-              </div>
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5" >
+                <div className="size-4 flex flex-col justify-center" >
+                  <img
+                    src={`icons/${item.icon}`}
+                    className="size-4 hidden md:inline object-cover align-middle"
+                  />
+                </div >
+
+                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left " >
                   {item.label}
-                </p>
-              </div>
-            </div>
+                </p >
+              </div >
+            </div >
           ))}
-        </div>
+        </div >
         {/* header */}
 
-        <div className="relative w-full h-full">
-          <div className="flex flex-col w-full h-full">
+        <div className="relative w-full h-full" >
+          <div className="flex flex-col w-full h-full" >
             {weeks.map((week, index) => (
               <div
                 className="flex w-full flex-1 flex-grow flex-shrink border-l"
@@ -156,7 +157,7 @@ function EmojiCalendar({ lang }) {
                       item.class,
                     )}
                   >
-                    <div className="gap-2.5 p-2 md:size-24">{item.label}</div>
+                    <div className="p-2">{item.label}</div>
                   </div>
                 ))}
               </div>

@@ -1,22 +1,20 @@
 "use client";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { MdOutlineToday, MdOutlineChevronLeft, MdOutlineChevronRight } from "react-icons/md";
 
 // todo replace icons to https://lucide.dev/icons/chevron-left;
 
 const operationsMap = {
   daysNav: [
     {
-      label: (
-        <SlArrowLeft type="button" className="h-3 w-3" aria-hidden="true" />
-      ),
+      label: MdOutlineChevronLeft,
       value: -1,
     },
     {
-      label: "Today",
+      label: MdOutlineToday,
       value: 0,
     },
     {
-      label: <SlArrowRight className="h-3 w-3" aria-hidden="true" />,
+      label: MdOutlineChevronRight,
       value: 1,
     },
   ],
@@ -50,13 +48,13 @@ const Tabs = () => {
 const DaysNav = ({ onChange }) => {
   return (
     <div className="flex items-center gap-4 px-2 cursor-pointer select-none print:hidden">
-      {operationsMap.daysNav.map(({ label, value }) => (
+      {operationsMap.daysNav.map(({ label: Label, value }) => (
         <span
           key={value}
           className="hover:text-blue-600"
           onClick={() => onChange(value)}
         >
-          {label}
+         <Label className="size-5" />
         </span>
       ))}
     </div>
