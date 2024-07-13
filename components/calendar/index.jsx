@@ -7,7 +7,7 @@ import { Tabs, DaysNav } from "./tabs";
 import Sidebar from "./Sidebar";
 import * as localeMap from "date-fns/locale";
 
-import { cn } from "@/utils";
+import { cn, MonthMatcher } from "@/utils";
 
 import Footer from "../Footer";
 import { metadata } from "@/utils/config";
@@ -19,7 +19,9 @@ function EmojiCalendar({ lang }) {
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
-  const [current, setCurrent] = useState(new Date());
+  const my = MonthMatcher();
+
+  const [current, setCurrent] = useState(my ? new Date(...my) : new Date());
 
   const isMobile = useClientMediaQuery("(max-width: 640px)");
 
@@ -126,12 +128,12 @@ function EmojiCalendar({ lang }) {
               className="flex justify-center items-center flex-grow h-6 relative gap-2.5"
             >
               <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5" >
-                <div className="size-4 flex flex-col justify-center" >
+                {/* <div className="size-4 flex flex-col justify-center" >
                   <img
                     src={`icons/${item.icon}`}
-                    className="size-4 hidden md:inline object-cover align-middle"
+                    className="size-4 hidden object-cover align-middle"
                   />
-                </div >
+                </div > */}
 
                 <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left " >
                   {item.label}

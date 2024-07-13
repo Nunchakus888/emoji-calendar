@@ -7,7 +7,8 @@ function App({ lang }) {
 
   const change = (e) => {
     console.log(e.target.value);
-    location.href = e.target.value;
+    const [_, lang, mmYYYY] = location.pathname.match(/^\/([\w-]+)[\/]*([\d{2}[\/-]*[\d]{4})*/);
+    location.href = `${location.protocol}//${location.hostname}/${e.target.value}/${mmYYYY || ''}`;
   };
 
   return (

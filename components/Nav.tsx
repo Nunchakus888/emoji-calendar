@@ -36,7 +36,7 @@ export const Nav = () => {
   };
 
   return (
-    <div className={"p-2 flex items-center h-14 z-50 bg-card border-border"}>
+    <div className={"flex items-center h-14 z-50 bg-card border-border"}>
       <div>{/*<HumeLogo className={"h-5 w-auto"} />*/}</div>
       <div className={"ml-auto flex items-center gap-1"}>
         <Button
