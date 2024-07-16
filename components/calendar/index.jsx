@@ -21,7 +21,7 @@ function EmojiCalendar({ lang }) {
 
   const my = MonthMatcher();
 
-  const [current, setCurrent] = useState(my ? new Date(...my) : new Date());
+  const [current, setCurrent] = useState(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
 
   const isMobile = useClientMediaQuery("(max-width: 640px)");
 
