@@ -132,7 +132,7 @@ function EmojiCalendar({ lang }) {
           {aWeek?.map((item) => (
             <div
               key={item.label}
-              className="flex justify-center items-center flex-grow h-6 relative gap-2.5"
+              className="flex justify-center items-center flex-grow h-6 relative gap-2.5 text-base"
             >
               <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5">
                 {/* <div className="size-4 flex flex-col justify-center" >
@@ -142,7 +142,7 @@ function EmojiCalendar({ lang }) {
                   />
                 </div > */}
 
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
+                <p className="flex-grow-0 flex-shrink-0 text-xs md:text-base font-medium text-left ">
                   {item.label}
                 </p>
               </div>
@@ -166,7 +166,7 @@ function EmojiCalendar({ lang }) {
                       item.class,
                     )}
                   >
-                    <div className="p-2">{item.label}</div>
+                    <div className="p-1 md:p-4 whitespace-break-spaces text-xs md:text-sm">{item.label}</div>
                   </div>
                 ))}
               </div>
