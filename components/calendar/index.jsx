@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AdapterDateFns } from "./DateFnsAdapter";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 
 import { Tabs, DaysNav } from "./tabs";
 import Sidebar from "./Sidebar";
@@ -15,21 +15,23 @@ import { metadata } from "@/utils/config";
 import { useClientMediaQuery } from "./useMediaQuery";
 
 function EmojiCalendar({ lang }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
+  const locale =
+    localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
   const my = MonthMatcher();
 
-  const [current, setCurrent] = useState(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
+  const [current, setCurrent] = useState(
+    my ? new Date(my[0], (my[1] || 1) - 1) : new Date(),
+  );
 
   const isMobile = useClientMediaQuery("(max-width: 640px)");
 
   const weeks = useMemo(() => {
-
-    pathOfDate(`/${lang}/${dfs.formatByString(current, 'MM/yyyy')}`)
+    pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
 
     return dfs.getWeekArray(current).map((weeks) => {
       return weeks.map((day, index) => {
@@ -132,7 +134,7 @@ function EmojiCalendar({ lang }) {
               key={item.label}
               className="flex justify-center items-center flex-grow h-6 relative gap-2.5"
             >
-              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5" >
+              <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5">
                 {/* <div className="size-4 flex flex-col justify-center" >
                   <img
                     src={`icons/${item.icon}`}
@@ -140,17 +142,17 @@ function EmojiCalendar({ lang }) {
                   />
                 </div > */}
 
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left " >
+                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                   {item.label}
-                </p >
-              </div >
-            </div >
+                </p>
+              </div>
+            </div>
           ))}
-        </div >
+        </div>
         {/* header */}
 
-        <div className="relative w-full h-full" >
-          <div className="flex flex-col w-full h-full" >
+        <div className="relative w-full h-full">
+          <div className="flex flex-col w-full h-full">
             {weeks.map((week, index) => (
               <div
                 className="flex w-full flex-1 flex-grow flex-shrink border-l"

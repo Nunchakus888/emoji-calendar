@@ -1,5 +1,9 @@
 "use client";
-import { MdOutlineToday, MdOutlineChevronLeft, MdOutlineChevronRight } from "react-icons/md";
+import {
+  MdOutlineToday,
+  MdOutlineChevronLeft,
+  MdOutlineChevronRight,
+} from "react-icons/md";
 
 // todo replace icons to https://lucide.dev/icons/chevron-left;
 
@@ -54,7 +58,7 @@ const DaysNav = ({ onChange }) => {
           className="hover:text-blue-600"
           onClick={() => onChange(value)}
         >
-         <Label className="size-5" />
+          <Label className="size-5" />
         </span>
       ))}
     </div>
