@@ -6,9 +6,12 @@ function App({ lang }) {
   const now = new Date();
 
   const change = (e) => {
-    console.log(e.target.value);
     const [_, lang, mmYYYY] = location.pathname.match(/^\/([\w-]+)[\/]*([\d{2}[\/-]*[\d]{4})*/);
-    location.href = `${location.protocol}//${location.hostname}/${e.target.value}/${mmYYYY || ''}`;
+
+    const newUrl = new URL(location.href);
+    newUrl.pathname = `/${e.target.value}/${mmYYYY || ''}`;
+
+    location.href = newUrl.href;
   };
 
   return (

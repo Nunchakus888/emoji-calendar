@@ -2,20 +2,22 @@
 
 import { useMemo, useState } from "react";
 import { AdapterDateFns } from "./DateFnsAdapter";
+import { usePathname } from 'next/navigation'
 
 import { Tabs, DaysNav } from "./tabs";
 import Sidebar from "./Sidebar";
 import * as localeMap from "date-fns/locale";
 
-import { cn, MonthMatcher } from "@/utils";
+import { cn, MonthMatcher, pathOfDate } from "@/utils";
 
 import Footer from "../Footer";
 import { metadata } from "@/utils/config";
 import { useClientMediaQuery } from "./useMediaQuery";
 
 function EmojiCalendar({ lang }) {
-  const locale =
-    localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
+  const pathname = usePathname()
+
+  const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
@@ -26,6 +28,9 @@ function EmojiCalendar({ lang }) {
   const isMobile = useClientMediaQuery("(max-width: 640px)");
 
   const weeks = useMemo(() => {
+
+    pathOfDate(`/${lang}/${dfs.formatByString(current, 'MM/yyyy')}`)
+
     return dfs.getWeekArray(current).map((weeks) => {
       return weeks.map((day, index) => {
         let label = "";
