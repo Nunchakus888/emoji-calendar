@@ -39,7 +39,7 @@ function EmojiCalendar({ lang }) {
         const isNotThisMonth =
           dfs.isBefore(day, start) || dfs.isAfter(day, end);
         const params = {
-          class: isNotThisMonth ? ["bg-slate-50 dark:bg-zinc-900"] : [],
+          class: isNotThisMonth ? ["bg-gray-50 opacity-80 dark:bg-zinc-900"] : [],
           label: "",
           isToday: !1,
           isNotThisMonth,
