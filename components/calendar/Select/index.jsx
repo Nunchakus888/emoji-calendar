@@ -18,10 +18,10 @@ function App({ lang }) {
 
   return (
     <div className="relative flex items-center">
-      <IoEarth className="size-5 absolute m-auto right-0 -z-10" />
+      <IoEarth className="size-5 absolute m-auto right-0 -z-10 cursor-pointer" />
       <select
         onChange={change}
-        className="block py-2.5 px-0 w-24 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+        className="block cursor-pointer py-2.5 px-0 w-24 text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
       >
         <label htmlFor="underline_select" className="sr-only">
           🌍

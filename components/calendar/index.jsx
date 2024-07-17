@@ -12,7 +12,7 @@ import { cn, MonthMatcher, pathOfDate } from "@/utils";
 
 import Footer from "../Footer";
 import { metadata } from "@/utils/config";
-import { useClientMediaQuery } from "./useMediaQuery";
+import { isMobile } from "react-device-detect";
 
 function EmojiCalendar({ lang }) {
   const pathname = usePathname();
@@ -28,31 +28,30 @@ function EmojiCalendar({ lang }) {
     my ? new Date(my[0], (my[1] || 1) - 1) : new Date(),
   );
 
-  const isMobile = useClientMediaQuery("(max-width: 640px)");
-
   const weeks = useMemo(() => {
     pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
 
+    const start = dfs.startOfMonth(current);
+    const end = dfs.endOfMonth(current);
+
     return dfs.getWeekArray(current).map((weeks) => {
       return weeks.map((day, index) => {
-        let label = "";
+        const isNotThisMonth =
+          dfs.isBefore(day, start) || dfs.isAfter(day, end);
         const params = {
-          class: "",
+          class: isNotThisMonth ? ["bg-slate-50 dark:bg-zinc-900"] : [],
           label: "",
           isToday: !1,
+          isNotThisMonth,
         };
 
         if (dfs.dateFns.isFirstDayOfMonth(day)) {
-          params.label = dfs.formatByString(day, "MMM do");
-          params.class += "font-medium";
+          params.label = dfs.formatByString(day, isMobile ? "MMM d" : "MMM do");
+          params.class.push("font-medium");
         } else {
-          params.label = dfs.formatByString(day, "do ");
+          params.label = dfs.formatByString(day, isMobile ? "d" : "do");
         }
 
-        if (dfs.dateFns.isToday(day)) {
-          params.isToday = !0;
-          params.class += "bg-slate-100 dark:bg-zinc-800 ";
-        }
         return {
           day,
           value: day,
@@ -103,7 +102,6 @@ function EmojiCalendar({ lang }) {
   });
 
   const daysChange = (step) => {
-    console.log("====e", step);
     if (!step) {
       setCurrent(new Date());
       return;
@@ -142,7 +140,7 @@ function EmojiCalendar({ lang }) {
                   />
                 </div > */}
 
-                <p className="flex-grow-0 flex-shrink-0 text-xs md:text-base font-medium text-left ">
+                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                   {item.label}
                 </p>
               </div>
@@ -162,11 +160,18 @@ function EmojiCalendar({ lang }) {
                   <div
                     key={item.day}
                     className={cn(
-                      `gap-2.5 px-1 py-[3px] border-r border-b text-xs flex-1 w-full h-full flex-grow flex-shrink`,
-                      item.class,
+                      `p-1 md:p-2 border-r border-b text-xs flex-1 w-full h-full flex-grow flex-shrink`,
+                      item.class.join(" "),
                     )}
                   >
-                    <div className="p-1 md:p-4 whitespace-break-spaces text-xs md:text-sm">{item.label}</div>
+                    <span
+                      className={cn(
+                        `p-1 md:p-1.5 whitespace-nowrap text-xs`,
+                        item.isToday && "bg-violet-500 rounded-full text-white",
+                      )}
+                    >
+                      {item.label}
+                    </span>
                   </div>
                 ))}
               </div>

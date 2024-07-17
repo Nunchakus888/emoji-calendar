@@ -17,7 +17,10 @@ const Footer = ({ children, lang }) => {
 
       <div className="text-center hidden md:block">{children}</div>
 
-      <IoPrintOutline className="cursor-pointer size-7 md:size-10" onClick={print} />
+      <IoPrintOutline
+        className="cursor-pointer size-7 md:size-10"
+        onClick={print}
+      />
     </div>
   );
 };
