@@ -5,8 +5,8 @@ import { GeistMono } from "geist/font/mono";
 import "../globals.css";
 
 import { cn } from "@/utils";
-import { metadata as md } from "@/utils/config";
-export const metadata = md;
+import { dynamicMetadata } from "@/utils/config";
+import type { Metadata } from "next";
 
 export default async function RootLayout({
   children,
@@ -28,4 +28,8 @@ export default async function RootLayout({
       <GoogleAnalytics gaId="G-R61JNS0P7G" />
     </html>
   );
+}
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  return dynamicMetadata(params);
 }

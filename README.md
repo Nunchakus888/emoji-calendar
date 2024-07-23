@@ -10,3 +10,7 @@ reference by
 
 - 考虑加入emoji信息能力：参考 https://emojipedia.org/calendar
 - 1
+
+#### 需求
+
+https://docs.qq.com/doc/DS2VTenJya2VzQ2tX

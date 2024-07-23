@@ -11,7 +11,7 @@ import * as localeMap from "date-fns/locale";
 import { cn, MonthMatcher, pathOfDate } from "@/utils";
 
 import Footer from "../Footer";
-import { metadata } from "@/utils/config";
+import { footerInfo } from "@/utils/config";
 import { isMobile } from "react-device-detect";
 
 function EmojiCalendar({ lang }) {
@@ -183,7 +183,7 @@ function EmojiCalendar({ lang }) {
       </div>
 
       <Footer lang={lang}>
-        {metadata.description.split("\n").map((line, index) => (
+        {footerInfo.description.split("\n").map((line, index) => (
           <p key={index} className={"mb-1"}>
             {line}
           </p>
