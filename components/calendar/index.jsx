@@ -39,14 +39,16 @@ function EmojiCalendar({ lang }) {
         const isNotThisMonth =
           dfs.isBefore(day, start) || dfs.isAfter(day, end);
         const params = {
-          class: isNotThisMonth ? ["bg-gray-50 opacity-80 dark:bg-zinc-900"] : [],
+          class: isNotThisMonth
+            ? ["bg-gray-50 opacity-80 dark:bg-zinc-900"]
+            : [],
           label: "",
           isToday: !1,
           isNotThisMonth,
         };
 
         if (dfs.dateFns.isFirstDayOfMonth(day)) {
-          params.label = dfs.formatByString(day, isMobile ? "MMM d" : "MMM do");
+          params.label = dfs.formatByString(day, isMobile ? "d" : "MMM do");
           params.class.push("font-medium");
         } else {
           params.label = dfs.formatByString(day, isMobile ? "d" : "do");
