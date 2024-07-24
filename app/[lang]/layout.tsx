@@ -30,8 +30,8 @@ export default async function RootLayout({
             Contact Us
           </a>
         </div>
+        <GoogleAnalytics gaId="G-R61JNS0P7G" />
       </body>
-      <GoogleAnalytics gaId="G-R61JNS0P7G" />
     </html>
   );
 }
