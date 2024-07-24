@@ -9,7 +9,7 @@ const Footer = ({ children, lang }) => {
     return typeof window !== undefined ? window.print() : 0;
   };
   return (
-    <div className="w-full py-4 text-center text-xs text-slate-400 flex items-center justify-between print:hidden">
+    <div className="w-full text-center text-xs text-slate-400 flex items-center justify-between print:hidden">
       <div className="flex items-center gap-2">
         <Nav />
         <Select lang={lang} />
