@@ -24,7 +24,7 @@ export default async function RootLayout({
         )}
       >
         {children}
-        <div className="flex items-center text-gray-500 text-xs w-full justify-center pb-2 gap-2">
+        <div className="flex items-center text-gray-300 text-xs w-full justify-center pb-2 gap-2">
           © 2024 x-calendar. All rights reserved.
           <a href="https://x.com/X_CalendarPrint">
             Contact Us
