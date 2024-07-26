@@ -25,7 +25,7 @@ export function middleware(
   console.log("----parseAcceptLanguage", parseAcceptLanguage);
 
   const fallbackPath =
-    parseAcceptLanguage.find((i) => match.test(`/${i}`)) || locales.enUS.code;
+    parseAcceptLanguage?.find((i) => match.test(`/${i}`)) || locales.enUS.code;
   const path = request.nextUrl.pathname;
   console.log("----path", path);
 
