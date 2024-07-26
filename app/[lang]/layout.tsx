@@ -5,20 +5,24 @@ import { GeistMono } from "geist/font/mono";
 import "../globals.css";
 
 import { cn } from "@/utils";
-import { dynamicMetadata } from "@/utils/config";
+import { dynamicMetadata, metadata as md } from "@/utils/config";
 import type { Metadata } from "next";
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: object;
+  params: any;
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn(
-          GeistSans.variable,
+    <head >
+      <link rel="alternate" hrefLang={params.lang} href={md.site} />
+    </head >
+    <body
+      className={cn(
+        GeistSans.variable,
           GeistMono.variable,
           "flex flex-col h-screen container justify-between",
         )}

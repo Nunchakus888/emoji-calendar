@@ -11,6 +11,7 @@ export const metadata = {
     "Easily print a calendar for ",
     " directly from your browser. Simply click print for a quick and free experience.",
   ],
+  site: 'https://x-calendar.com/',
 };
 
 export const dynamicMetadata = (params) => {

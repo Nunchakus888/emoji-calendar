@@ -1,11 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {useEffect, useMemo, useState} from "react";
 import { AdapterDateFns } from "./DateFnsAdapter";
 import { usePathname } from "next/navigation";
 
 import { Tabs, DaysNav } from "./tabs";
-import Sidebar from "./Sidebar";
 import * as localeMap from "date-fns/locale";
 
 import { cn, MonthMatcher, pathOfDate } from "@/utils";
@@ -17,20 +16,22 @@ import { isMobile } from "react-device-detect";
 function EmojiCalendar({ lang }) {
   const pathname = usePathname();
 
-  const locale =
-    localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
+  const locale = localeMap[lang.replace(/-(\w){1}/, (_, letter) => letter.toUpperCase())];
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
-  const my = MonthMatcher();
+  const [current, setCurrent] = useState(new Date());
 
-  const [current, setCurrent] = useState(
-    my ? new Date(my[0], (my[1] || 1) - 1) : new Date(),
-  );
+  useEffect(() => {
+    const my = MonthMatcher();
+    setCurrent(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
+  }, []);
+
+  useEffect(() => {
+    pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
+  }, [current]);
 
   const weeks = useMemo(() => {
-    pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
-
     const start = dfs.startOfMonth(current);
     const end = dfs.endOfMonth(current);
 
