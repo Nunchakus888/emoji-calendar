@@ -1,3 +1,2 @@
 User-agent: *
 Disallow: /private/
-Sitemap: https://www.x-calendar.com/
