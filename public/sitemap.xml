@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- 网站首页 -->
+    <url>
+        <loc>https://www.x-calendar.com/zh-CN</loc>
+        <lastmod>2024-07-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- 其他页面示例 -->
+    <url>
+        <loc>https://www.x-calendar.com/en-US</loc>
+        <lastmod>2024-07-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+</urlset>
