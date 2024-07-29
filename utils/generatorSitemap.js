@@ -51,7 +51,7 @@ class SitemapWriter {
 		}
 
 		// Generate the XML markup
-		const xmlString = xml(xmlObject)
+		const xmlString = xml(xmlObject, true)
 
 		// Write the file to disk
 		await fs.writeFile(this.outFile, '<?xml version="1.0" encoding="UTF-8"?>' + xmlString)
