@@ -10,52 +10,84 @@ const locales = require('date-fns/locale')
 // https://www.sitemaps.org/protocol.html
 
 class SitemapWriter {
-	constructor({ outFile }) {
-		this.outFile = outFile
-        this.langs = ['', ...Object.keys(locales).map((k) => `${locales[k].code}`)];
+	constructor() {
+        this.langs = Object.keys(locales).map((k) => `${locales[k].code}`);
+		this.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+		this.years = ['2021', '2022', '2023', '2024', '2025', '2026', '2027'];
         this.date = dfs.format(Date.now(), 'yyyy-MM-dd');
-        this.writeSitemap();
+
+		const sitemapList = [
+			{
+				dir: 'lang',
+				generator: this.generateLangUrls,
+			},
+			...this.years.map(y => ({
+				dir: y,
+				generator: this.generateYealyUrls,
+			})),
+		];
+
+		for(const i of sitemapList) {
+			this.writeSitemap(`public/${i.dir}-sitemap.xml`, i.generator({ ...this, year: i.dir }));
+		}
 	}
 
-	async writeSitemap() {
-		// Construct the XML object
-		const xmlObject = {
-			urlset: [
-				// <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-				{
-					_attr: {
-						xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
-					},
-				},
+	generateYealyUrls({ year, langs, months }) {
+		// months * lang * year
+		return langs.map((lang) => {
+			return months.map((month) => {
+				return {
+					url: [
+						{ loc: `https://www.x-calendar.com/${lang}/${month}/${year}` },
+						{ lastmod: this.date },
+						{ changefreq: 'monthly' },
+						{ priority: 1 },
+					],
+				}
+			})
+		}).flat();
+	}
 
-				// For every page of the site, generate a <url> object
-				...this.langs.map((lang) => {
-					return {
-						// <url>
-						url: [
-							// <loc>http://www.example.com/</loc>
-							{ loc: `https://www.x-calendar.com/${lang}` },
+	generateLangUrls({ langs }) {
+		return langs.map((_) => {
+			return {
+				// <url>
+				url: [
+					// <loc>http://www.example.com/</loc>
+					{ loc: `https://www.x-calendar.com/${_}` },
 
-							// <lastmod>2005-01-01</lastmod>
-							{ lastmod: this.date },
+					// <lastmod>2005-01-01</lastmod>
+					{ lastmod: this.date },
 
-							// <changefreq>monthly</changefreq>
-							{ changefreq: 'daily' },
+					// <changefreq>monthly</changefreq>
+					{ changefreq: 'monthly' },
 
-							// <priority>0.8</priority>
-							{ priority: 1 },
-						],
-					}
-				}),
-			],
-		}
+					// <priority>0.8</priority>
+					{ priority: 1 },
+				],
+			}
+		});
+	};
 
+	async writeSitemap(outFile, urlset) {
 		// Generate the XML markup
-		const xmlString = xml(xmlObject, true)
+		const xmlString = xml(
+			{ 
+				urlset: [
+					{
+						_attr: {
+							xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
+						},
+					},
+					...urlset,
+				]
+			},
+			true
+		)
 
 		// Write the file to disk
-		await fs.writeFile(this.outFile, '<?xml version="1.0" encoding="UTF-8"?>' + xmlString)
+		await fs.writeFile(outFile, '<?xml version="1.0" encoding="UTF-8"?>' + xmlString)
 	}
 }
 
-new SitemapWriter({ outFile: 'public/sitemap.xml' });
+new SitemapWriter();
