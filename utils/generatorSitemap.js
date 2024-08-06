@@ -32,7 +32,7 @@ class SitemapWriter {
 		}
 	}
 
-	generateYealyUrls({ year, langs, months }) {
+	generateYealyUrls({ year, langs, date, months }) {
 		// console.log('----year', year);
 		// months * lang * year
 		return langs.map((lang) => {
@@ -40,7 +40,7 @@ class SitemapWriter {
 				return {
 					url: [
 						{ loc: `https://www.x-calendar.com/${lang}/${month}/${year}` },
-						{ lastmod: this.date },
+						{ lastmod: date },
 						{ changefreq: 'monthly' },
 						{ priority: 1 },
 					],
