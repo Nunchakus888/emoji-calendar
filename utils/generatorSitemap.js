@@ -49,7 +49,7 @@ class SitemapWriter {
 		}).flat();
 	}
 
-	generateLangUrls({ langs }) {
+	generateLangUrls({ langs, date }) {
 		return langs.map((_) => {
 			return {
 				// <url>
@@ -58,7 +58,7 @@ class SitemapWriter {
 					{ loc: `https://www.x-calendar.com/${_}` },
 
 					// <lastmod>2005-01-01</lastmod>
-					{ lastmod: this.date },
+					{ lastmod: date },
 
 					// <changefreq>monthly</changefreq>
 					{ changefreq: 'monthly' },
