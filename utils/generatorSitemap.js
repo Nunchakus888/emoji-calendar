@@ -33,6 +33,7 @@ class SitemapWriter {
 	}
 
 	generateYealyUrls({ year, langs, months }) {
+		// console.log('----year', year);
 		// months * lang * year
 		return langs.map((lang) => {
 			return months.map((month) => {
