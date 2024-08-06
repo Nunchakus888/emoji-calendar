@@ -1,7 +1,8 @@
 import { NextResponse, NextRequest } from "next/server";
 import * as locales from "date-fns/locale";
 
-const langs = Object.keys(locales).map((k) => `${locales[k].code}`);
+import { languages as langs } from '@/utils';
+
 const match = new RegExp(`/(${langs.join("|")}){1}`);
 
 export function middleware(

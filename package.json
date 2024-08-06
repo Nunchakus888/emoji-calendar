@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://github.com/humeai/hume-evi-next-js-starter",
   "scripts": {
+    "translate": "node --experimental-modules services/translate.mjs",
     "sitemap": "node utils/generatorSitemap.js",
     "dev": "next dev",
     "build": "next build",
