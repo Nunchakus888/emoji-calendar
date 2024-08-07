@@ -29,7 +29,6 @@ export default async function RootLayout({
         )}
       >
         {children}
-        {/* <FooterDscription locale={params.lang} /> */}
 
         <CopyRight />
         <GoogleAnalytics gaId="G-R61JNS0P7G" />
