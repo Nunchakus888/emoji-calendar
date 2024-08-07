@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
 import { Nav } from "@/components/Nav";
 import Select from "@/components/calendar/Select";
 import { IoPrintOutline } from "react-icons/io5";
 
-const Footer = ({ children, lang }) => {
+const Footer = ({ lang }) => {
   const print = () => {
     return typeof window !== undefined ? window.print() : 0;
   };
@@ -15,12 +15,10 @@ const Footer = ({ children, lang }) => {
         <Select lang={lang} />
       </div>
 
-      <div className="text-center hidden md:block">{children}</div>
-
       <IoPrintOutline
-        className="cursor-pointer size-7 md:size-10"
-        onClick={print}
-      />
+          className="cursor-pointer size-7 md:size-10"
+          onClick={print}
+        />
     </div>
   );
 };

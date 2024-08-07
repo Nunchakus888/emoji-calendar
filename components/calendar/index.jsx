@@ -9,9 +9,9 @@ import * as localeMap from "date-fns/locale";
 
 import { cn, MonthMatcher, pathOfDate } from "@/utils";
 
-import Footer from "../Footer";
-import { footerInfo } from "@/utils/config";
 import { isMobile } from "react-device-detect";
+import Footer from "../Footer";
+
 
 function EmojiCalendar({ lang }) {
   const pathname = usePathname();
@@ -183,13 +183,7 @@ function EmojiCalendar({ lang }) {
         </div>
       </div>
 
-      <Footer lang={lang}>
-        {footerInfo.description.split("\n").map((line, index) => (
-          <p key={index} className={"mb-1"}>
-            {line}
-          </p>
-        ))}
-      </Footer>
+      <Footer lang={lang} />
     </div>
   );
 }
