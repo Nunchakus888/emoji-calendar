@@ -30,7 +30,8 @@ export const dynamicMetadata = async (params) => {
   const my = dfs.formatByString(c, "MMMM yyyy");
   
   return {
-    description: transTxt.description.replace(noTransStr, my),
     title: `${my} ${transTxt.title}`,
+    description: transTxt.description.replace(noTransStr, my),
+    keywords: transTxt.keywords,
   };
 };

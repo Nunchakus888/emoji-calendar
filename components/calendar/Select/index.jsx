@@ -15,7 +15,7 @@ function App({ lang }) {
   };
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center z-10">
       <IoEarth className="size-5 absolute m-auto right-0 -z-10 cursor-pointer" />
       <select
         onChange={change}

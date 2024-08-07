@@ -7,7 +7,7 @@ import "../globals.css";
 import { cn } from "@/utils";
 import { dynamicMetadata, metadata as md } from "@/utils/config";
 import type { Metadata } from "next";
-import { CopyRight } from "@/components/ui/server";
+import { FooterDescription} from "@/components/ui/server";
 
 export default async function RootLayout({
   children,
@@ -25,12 +25,11 @@ export default async function RootLayout({
       className={cn(
         GeistSans.variable,
           GeistMono.variable,
-          "flex flex-col h-screen container justify-between",
+          "flex flex-col h-screen container justify-between relative",
         )}
       >
         {children}
-
-        <CopyRight />
+        <FooterDescription lang={params.lang} />
         <GoogleAnalytics gaId="G-R61JNS0P7G" />
       </body>
     </html>

@@ -6,11 +6,9 @@ import Select from "@/components/calendar/Select";
 
 const Footer = ({ lang }) => {
   return (
-    <div className="w-full text-center text-xs text-slate-400 flex items-center justify-between print:hidden">
-      <div className="flex items-center gap-2">
-        <Nav />
-        <Select lang={lang} />
-      </div>
+    <div className="w-full text-xs text-slate-400 flex items-center justify-between pt-3 pb-5 print:hidden">
+      <Select lang={lang} />
+      <Nav />
     </div>
   );
 };
