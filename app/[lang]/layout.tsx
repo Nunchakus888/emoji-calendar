@@ -7,7 +7,7 @@ import "../globals.css";
 import { cn } from "@/utils";
 import { dynamicMetadata, metadata as md } from "@/utils/config";
 import type { Metadata } from "next";
-import { FooterDscription } from "@/components/ui/common";
+import { CopyRight } from "@/components/ui/server";
 
 export default async function RootLayout({
   children,
@@ -31,12 +31,7 @@ export default async function RootLayout({
         {children}
         {/* <FooterDscription locale={params.lang} /> */}
 
-        <div className="flex items-center text-gray-300 text-xs w-full justify-center pb-2 gap-2">
-          © 2024 x-calendar. All rights reserved.
-          <a href="https://x.com/X_CalendarPrint">
-            Contact Us
-          </a>
-        </div>
+        <CopyRight />
         <GoogleAnalytics gaId="G-R61JNS0P7G" />
       </body>
     </html>

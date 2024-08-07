@@ -11,6 +11,7 @@ import { cn, MonthMatcher, pathOfDate } from "@/utils";
 
 import { isMobile } from "react-device-detect";
 import Footer from "../Footer";
+import {Print} from '@/components/ui/common';
 
 
 function EmojiCalendar({ lang }) {
@@ -118,13 +119,15 @@ function EmojiCalendar({ lang }) {
       {/*<Sidebar lang={lang} />*/}
 
       <div className="w-full h-full flex flex-col justify-between items-center flex-grow relative pl-px ">
-        <div className="flex justify-between items-center self-stretch p-4 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60">
+        <div className="flex justify-between items-center self-stretch py-4 px-2 border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]/60">
           <div className="flex justify-between items-center w-full print:justify-center">
+            <DaysNav onChange={daysChange} />
+            
             <span className="text-3xl font-medium md:w-48 text-left whitespace-nowrap">
               {dfs.formatByString(current, "MMM yyyy")}
             </span>
-            {/*<Tabs />*/}
-            <DaysNav onChange={daysChange} />
+
+            <Print />
           </div>
         </div>
 
