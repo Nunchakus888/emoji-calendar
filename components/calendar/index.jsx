@@ -21,12 +21,9 @@ function EmojiCalendar({ lang }) {
 
   const dfs = useMemo(() => new AdapterDateFns({ locale }), [locale]);
 
-  const [current, setCurrent] = useState(new Date());
+  const my = MonthMatcher(pathname);
 
-  useEffect(() => {
-    const my = MonthMatcher();
-    setCurrent(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
-  }, []);
+  const [current, setCurrent] = useState(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
 
   useEffect(() => {
     pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);

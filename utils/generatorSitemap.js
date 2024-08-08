@@ -11,35 +11,37 @@ const locales = require('date-fns/locale')
 
 class SitemapWriter {
 	constructor() {
-        this.langs = Object.keys(locales).map((k) => `${locales[k].code}`);
+		this.langs = Object.keys(locales).map((k) => `${locales[k].code}`);
 		this.months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
 		this.years = ['2021', '2022', '2023', '2024', '2025', '2026', '2027'];
-        this.date = dfs.format(Date.now(), 'yyyy-MM-dd');
+		this.date = dfs.format(Date.now(), 'yyyy-MM-dd');
+		this.url = 'https://www.x-calendar.com';
 
-		const sitemapList = [
-			{
-				dir: 'lang',
-				generator: this.generateLangUrls,
-			},
-			...this.years.map(y => ({
-				dir: y,
-				generator: this.generateYealyUrls,
-			})),
-		];
+		// const sitemapList = [
+		// 	{
+		// 		dir: 'lang',
+		// 		generator: this.generateLangUrls,
+		// 	},
+		// 	...this.years.map(y => ({
+		// 		dir: y,
+		// 		generator: this.generateYealyUrls,
+		// 	})),
+		// ];
+		//
+		// for(const i of sitemapList) {
+		// 	this.writeSitemap(`public/${i.dir}-sitemap.xml`, i.generator({ ...this, year: i.dir }));
+		// }
 
-		for(const i of sitemapList) {
-			this.writeSitemap(`public/${i.dir}-sitemap.xml`, i.generator({ ...this, year: i.dir }));
-		}
+		// alternates
+		this.writeSitemap(`public/alternates-sitemap.xml`, this.sitemapWithAlternates(this), !0);
 	}
 
-	generateYealyUrls({ year, langs, date, months }) {
-		// console.log('----year', year);
-		// months * lang * year
+	generateYealyUrls({ year, langs, date, months, url }) {
 		return langs.map((lang) => {
 			return months.map((month) => {
 				return {
 					url: [
-						{ loc: `https://www.x-calendar.com/${lang}/${month}/${year}` },
+						{ loc: `${url}/${lang}/${month}/${year}` },
 						{ lastmod: date },
 						{ changefreq: 'monthly' },
 						{ priority: 1 },
@@ -70,16 +72,67 @@ class SitemapWriter {
 		});
 	};
 
-	async writeSitemap(outFile, urlset) {
+	getAlternates({ date, url }) {
+		return this.langs.map(( lang) => ({
+			'xhtml:link': [
+				{
+					_attr: {
+						rel: 'alternate',
+						hreflang: lang,
+						href: `${url}/${lang}/${date}`,
+					},
+				}
+			]
+		}));
+	}
+
+	/**
+	 *   <url>
+	 *     <loc>https://www.example.com/english/page.html</loc>
+	 *     <xhtml:link
+	 *                rel="alternate"
+	 *                hreflang="de"
+	 *                href="https://www.example.de/deutsch/page.html"/>
+	 *     <xhtml:link
+	 *                rel="alternate"
+	 *                hreflang="de-ch"
+	 *                href="https://www.example.de/schweiz-deutsch/page.html"/>
+	 *     <xhtml:link
+	 *                rel="alternate"
+	 *                hreflang="en"
+	 *                href="https://www.example.com/english/page.html"/>
+	 *   </url>
+	 *   <url>
+	 */
+
+	sitemapWithAlternates({ months, years, url, date: now }) {
+		return months.map((month) => years.map((year) => {
+			const date = `${month}/${year}`;
+			return {
+				url: [
+					{ loc: `${url}/${date}` },
+					...this.getAlternates({ date, url }),
+				]
+			}
+		})).flat();
+	}
+
+	async writeSitemap(outFile, urlset, alternates) {
 		// Generate the XML markup
+		const item = {
+			_attr: {
+				xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
+			},
+		};
+
+		if(alternates) {
+			item._attr['xmlns:xhtml'] = 'http://www.w3.org/1999/xhtml';
+		}
+
 		const xmlString = xml(
 			{ 
 				urlset: [
-					{
-						_attr: {
-							xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
-						},
-					},
+					item,
 					...urlset,
 				]
 			},

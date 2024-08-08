@@ -32,7 +32,12 @@ export function middleware(
 
   // both start with / and another illegal path redirect to fullback
   if (path === "/" || !match.test(path)) {
-    request.nextUrl.pathname = `/${fallbackPath}`;
+    if (/^(\/\d{2}\/\d*)/.test(path)) {
+      // /01/2023 -> /en/01/2023
+      request.nextUrl.pathname = `/${fallbackPath}${path}`;
+    } else {
+      request.nextUrl.pathname = `/${fallbackPath}`;
+    }
     return NextResponse.redirect(request.nextUrl);
   }
 

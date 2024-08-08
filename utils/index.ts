@@ -6,9 +6,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function MonthMatcher() {
-  const [_, lang, mmYYYY] = window.location.pathname.match(
-    /^\/([\w-]+)[\/]*([\d{2}[\/-]*[\d]{4})*/,
+export function MonthMatcher(pathname) {
+  const [_, lang, mmYYYY] = pathname.match(
+    /^\/([\w-]+)[\/]*([\d{2}[\/-]*[\d]{3})*/,
   );
   return mmYYYY && mmYYYY.split(/\/|-/).reverse();
 }

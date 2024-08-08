@@ -49,6 +49,7 @@ async function main() {
       continue;
     }
     for (const key of Object.keys(sourceTxt)) {
+      // if (key !== 'description') continue;
       const map = {
         [key]: sourceTxt[key],
       };
