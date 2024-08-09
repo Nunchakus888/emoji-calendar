@@ -17,23 +17,24 @@ class SitemapWriter {
 		this.date = dfs.format(Date.now(), 'yyyy-MM-dd');
 		this.url = 'https://www.x-calendar.com';
 
-		// const sitemapList = [
-		// 	{
-		// 		dir: 'lang',
-		// 		generator: this.generateLangUrls,
-		// 	},
-		// 	...this.years.map(y => ({
-		// 		dir: y,
-		// 		generator: this.generateYealyUrls,
-		// 	})),
-		// ];
-		//
-		// for(const i of sitemapList) {
-		// 	this.writeSitemap(`public/${i.dir}-sitemap.xml`, i.generator({ ...this, year: i.dir }));
-		// }
+		const sitemapList = [
+			{
+				dir: 'lang',
+				generator: this.generateLangUrls,
+			},
+			// ...this.years.map(y => ({
+			// 	dir: y,
+			// 	generator: this.generateYealyUrls,
+			// })),
+		];
+
+		for(const i of sitemapList) {
+			this.writeSitemap(`public/${i.dir}-sitemap-www.xml`, i.generator({ ...this, year: i.dir }));
+			this.writeSitemap(`public/${i.dir}-sitemap.xml`, i.generator({ ...this, year: i.dir, url: 'https://x-calendar.com' }));
+		}
 
 		// alternates
-		this.writeSitemap(`public/alternates-sitemap.xml`, this.sitemapWithAlternates(this), !0);
+		// this.writeSitemap(`public/alternates-sitemap.xml`, this.sitemapWithAlternates(this), !0);
 	}
 
 	generateYealyUrls({ year, langs, date, months, url }) {
@@ -51,13 +52,13 @@ class SitemapWriter {
 		}).flat();
 	}
 
-	generateLangUrls({ langs, date }) {
+	generateLangUrls({ langs, date, url = 'https://www.x-calendar.com' }) {
 		return langs.map((_) => {
 			return {
 				// <url>
 				url: [
 					// <loc>http://www.example.com/</loc>
-					{ loc: `https://www.x-calendar.com/${_}` },
+					{ loc: `${url}/${_}` },
 
 					// <lastmod>2005-01-01</lastmod>
 					{ lastmod: date },
