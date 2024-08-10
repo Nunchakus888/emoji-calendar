@@ -5,7 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import "../globals.css";
 
 import { cn } from "@/utils";
-import { dynamicMetadata, metadata as md } from "@/utils/config";
+import { dynamicMetadata } from "@/utils/config";
 import type { Metadata } from "next";
 import { FooterDescription} from "@/components/ui/server";
 
@@ -18,9 +18,6 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head >
-      <link rel="alternate" hrefLang={params.lang} href={md.site} />
-    </head >
     <body
       className={cn(
         GeistSans.variable,
