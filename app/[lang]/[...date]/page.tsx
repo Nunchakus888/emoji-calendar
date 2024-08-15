@@ -1,5 +1,12 @@
 import EmojiCalendar from "@/components/calendar";
+import { dynamicMetadata } from "@/utils/config";
 
 export default async function Page({ params }) {
-  return <EmojiCalendar lang={params.lang || "en-US"} />;
+  const { description } = await dynamicMetadata(params);
+  return (
+    <>
+      <h1 className="absolute top-0 w-0 h-0 invisible">{description}</h1>
+      <EmojiCalendar lang={params.lang || "en-US"} />
+    </>
+  )
 }
