@@ -18,9 +18,9 @@ export const FooterDescription = async ({ lang }) => {
       <div className="text-center hidden md:block">
         {
           footer.split("\n").map((line, index) => (
-            <p key={index} className={"mb-1"}>
+            <div key={index} className={"mb-1"}>
               {line}
-            </p>
+            </div>
           ))
         }
       </div>

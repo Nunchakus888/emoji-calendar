@@ -143,9 +143,9 @@ function EmojiCalendar({ lang }) {
                   />
                 </div > */}
 
-                <p className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
+                <div className="flex-grow-0 flex-shrink-0 text-xs font-medium text-left ">
                   {item.label}
-                </p>
+                </div>
               </div>
             </div>
           ))}
