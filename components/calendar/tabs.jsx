@@ -49,20 +49,26 @@ const Tabs = () => {
   );
 };
 
-const DaysNav = ({ onChange }) => {
+const DaysNav = ({ onChange, current }) => {
   return (
-    <div className="flex items-center gap-4 px-2 cursor-pointer select-none print:hidden">
-      {operationsMap.daysNav.map(({ label: Label, value }) => (
-        <span
-          key={value}
-          className="hover:text-blue-600"
-          onClick={() => onChange(value)}
-        >
-          <Label className="size-5" />
-        </span>
-      ))}
-    </div>
+    <div className="flex items-center gap-4" >
+      <div className="text-3xl font-medium md:w-48 text-left whitespace-nowrap" >
+        {current}
+      </div >
+
+      <div className="flex items-center gap-4 px-2 cursor-pointer select-none print:hidden" >
+        {operationsMap.daysNav.map(({label: Label, value}) => (
+          <span
+            key={value}
+            className="hover:text-blue-600"
+            onClick={() => onChange(value)}
+          >
+            <Label className="size-5" />
+          </span >
+        ))}
+      </div >
+    </div >
   );
 };
 
-export { Tabs, DaysNav };
+export {Tabs, DaysNav};
