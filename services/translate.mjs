@@ -55,6 +55,7 @@ async function main() {
       };
       await translateAndSave(map, key, sourceTxt[key], lang).catch(e => console.error(`Error translating ${key} to ${lang}: ${e}`));
     }
+    break;
   }
 }
 

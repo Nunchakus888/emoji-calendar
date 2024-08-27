@@ -4,7 +4,7 @@ import {useEffect, useMemo, useState} from "react";
 import { AdapterDateFns } from "./DateFnsAdapter";
 import { usePathname } from "next/navigation";
 
-import { Tabs, DaysNav } from "./tabs";
+import { Tabs, DaysNav, ViewSwitchSelector } from "./tabs";
 import * as localeMap from "date-fns/locale";
 
 import { cn, MonthMatcher, pathOfDate } from "@/utils";
@@ -26,6 +26,8 @@ function EmojiCalendar({ lang }) {
   const my = MonthMatcher(pathname);
 
   const [current, setCurrent] = useState(my ? new Date(my[0], (my[1] || 1) - 1) : new Date());
+
+  const [view, setView] = useState("month");
 
   useEffect(() => {
     pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
@@ -113,6 +115,18 @@ function EmojiCalendar({ lang }) {
     setCurrent(v);
   };
 
+  const viewChange = (view) => {
+    setView(view);
+
+    // if (view === "month") {
+    //   pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
+    // } else if (view === "week") {
+    //   pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}/week`);
+    // } else if (view === "year") {
+    //   pathOfDate(`/${lang}/${dfs.formatByString(current, "yyyy")}`);
+    // }
+  }
+
   return (
     <div className="w-full mx-auto h-full flex flex-col overflow-hidden rounded-md">
       {/*<Sidebar lang={lang} />*/}
@@ -122,14 +136,19 @@ function EmojiCalendar({ lang }) {
           <div className="flex justify-between items-center w-full print:justify-center">
             <DaysNav onChange={daysChange} current={dfs.formatByString(current, "MMM yyyy")} />
 
-            <Tabs />
+            <ViewSwitchSelector selected={view} onChange={viewChange} />
 
             <Print />
           </div>
         </div>
 
-        <YearView dfs={dfs} current={current} />
-        <MonthView aWeek={aWeek} weeks={weeks} />
+        {
+          view === "month" && <MonthView aWeek={aWeek} weeks={weeks} />
+        }
+        
+        {
+          view === "year" && <YearView dfs={dfs} current={current} />
+        }
       </div>
 
       <Footer lang={lang} />
