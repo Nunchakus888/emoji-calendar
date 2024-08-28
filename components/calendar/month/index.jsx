@@ -1,9 +1,10 @@
 import { cn } from "@/utils";
 
-const MonthView = ({ aWeek, weeks }) => {
+export const MONTHS = new Array(12).fill(0).map((_, index) => index);
 
+const MonthView = ({ aWeek, weeks }) => {
   return (
-    <div>
+    <>
       <div className="flex flex-1 justify-start items-start self-stretch border-t-0 border-r-0 border-b border-l-0 border-[#dadce0]">
         {aWeek?.map((item) => (
           <div
@@ -55,7 +56,7 @@ const MonthView = ({ aWeek, weeks }) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

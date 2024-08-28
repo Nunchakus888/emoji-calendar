@@ -13,7 +13,7 @@ import { isMobile } from "react-device-detect";
 import Footer from "../Footer";
 import {Print} from '@/components/ui/common';
 import YearView from "./year";
-import MonthView from './month';
+import MonthView, { MONTHS } from './month';
 
 
 function EmojiCalendar({ lang }) {
@@ -33,11 +33,12 @@ function EmojiCalendar({ lang }) {
     pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
   }, [current]);
 
-  const weeks = useMemo(() => {
-    const start = dfs.startOfMonth(current);
-    const end = dfs.endOfMonth(current);
 
-    return dfs.getWeekArray(current).map((weeks) => {
+  const calcWeeks = (v) => {
+    const start = dfs.startOfMonth(v);
+    const end = dfs.endOfMonth(v);
+
+    return dfs.getWeekArray(v).map((weeks) => {
       return weeks.map((day, index) => {
         const isNotThisMonth =
           dfs.isBefore(day, start) || dfs.isAfter(day, end);
@@ -65,6 +66,21 @@ function EmojiCalendar({ lang }) {
         };
       });
     });
+  }
+  /**
+   * @type {{isToday: *, isNotThisMonth: boolean, label: string, day: *, value: *, class: [string]|[]}[][]}
+   */
+  const weeks = useMemo(() => {
+    console.log('---current.getMilliseconds()', current.getMilliseconds());
+    if (current.getMilliseconds() === 999) {
+      return MONTHS.map((m) => {
+        const month = dfs.setMonth(current, m);
+        return calcWeeks(month);
+      });
+    } else {
+      return calcWeeks(current);
+    }
+
   }, [current]);
 
   const aWeek = [
@@ -115,8 +131,14 @@ function EmojiCalendar({ lang }) {
     setCurrent(v);
   };
 
-  const viewChange = (view) => {
-    setView(view);
+  const viewChange = (e) => {
+    const v = e.target.value;
+    setView(v);
+    if (v === 'year') {
+      setCurrent(dfs.setMilliseconds(dfs.startOfYear(current), 999));
+    } else {
+      setCurrent(new Date(my[0], (my[1] || 1) - 1));
+    }
 
     // if (view === "month") {
     //   pathOfDate(`/${lang}/${dfs.formatByString(current, "MM/yyyy")}`);
@@ -147,7 +169,7 @@ function EmojiCalendar({ lang }) {
         }
         
         {
-          view === "year" && <YearView dfs={dfs} current={current} />
+          view === "year" && <YearView dfs={dfs} current={current} weeks={weeks} />
         }
       </div>
 

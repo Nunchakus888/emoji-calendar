@@ -1,22 +1,13 @@
 import {isMobile} from "react-device-detect";
 
-const YearView = ({ dfs, current }) => {
+const YearView = ({ dfs, current, weeks }) => {
 
-  const year = current.getFullYear();
-  const months = new Array(12).fill(0).map((_, v) => {
-    return {
-      value: v + 1,
-      label: v + 1,
-      weeks: dfs.getWeekArray(new Date(year, v)),
-    }
-  });
-
-  console.log('------months', months);
+  console.log('------months', weeks, current);
   return (
     <div className="flex justify-start items-start flex-wrap w-full h-full p-6" >
       {
-        months.map(({ label, weeks }) => (
-          <AMonth key={label} />
+        weeks.map((aMonth, index) => (
+          <AMonth key={index} aMonth={aMonth} index={index + 1} />
           /*<div key={label} className="flex flex-col justify-center items-center self-stretch flex-grow gap-1 p-5 bg-white" >
             <div className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]" >{label}</div >
 
@@ -60,13 +51,13 @@ const YearView = ({ dfs, current }) => {
 export default YearView;
 
 
-const AMonth = () => (
+const AMonth = ({ index, aMonth }) => (
   <div className="flex flex-col justify-center items-center self-stretch flex-grow gap-1 p-5 bg-white">
     <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
       <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
         <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
           <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-            01
+            { index }
           </p>
         </div>
       </div>
@@ -138,331 +129,25 @@ const AMonth = () => (
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  01
-                </p>
-              </div>
+        {
+          aMonth.map((aWeek, iw) => (
+            <div key={iw} className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
+              {
+                aWeek.map((day) => (
+                  <div key={day.day} className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
+                    <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
+                      <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
+                        <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
+                          {day.label}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              }
             </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-center items-center flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px] rounded-[99px] bg-[#0c41ff]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-white">
-                  02
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  03
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  04
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  05
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  06
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  07
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  08
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  09
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  10
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  11
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  12
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  13
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  14
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  15
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  16
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  17
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  18
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  19
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  20
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  21
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  22
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  23
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  24
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  25
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  26
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  27
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  28
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between items-start self-stretch flex-grow-0 flex-shrink-0">
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  29
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  30
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  31
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  01
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  02
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  03
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 opacity-30 gap-2.5 p-1">
-            <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 w-[22px] gap-2.5 p-[5px]">
-              <div className="flex justify-start items-start flex-grow-0 flex-shrink-0 relative gap-2.5">
-                <p className="flex-grow-0 flex-shrink-0 text-[10px] font-medium text-left text-[#333]">
-                  04
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+          ))
+        }
       </div>
     </div>
   </div>
