@@ -4,7 +4,7 @@ const YearView = ({ dfs, current, weeks }) => {
 
   console.log('------months', weeks, current);
   return (
-    <div className="flex justify-start items-start flex-wrap w-full h-full p-6" >
+    <div className="flex justify-start items-start flex-wrap w-full h-full" >
       {
         weeks.map((aMonth, index) => (
           <AMonth key={index} aMonth={aMonth} index={index + 1} />
